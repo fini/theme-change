@@ -34,7 +34,8 @@
     "build:toggle": "uglifyjs src/toggle.js src/callToggle.js src/export.js -o toggle.js",
     "build:select": "uglifyjs src/select.js src/callSelect.js src/export.js -o select.js",
     "build:index": "uglifyjs src/toggle.js src/btn.js src/select.js src/callAll.js src/export.js -o index.js",
-    "build": "npm run build:btn && npm run build:toggle && npm run build:select && npm run build:index"
+    "build": "npm run build:btn && npm run build:toggle && npm run build:select && npm run build:index",
+    "prepare": "npm run build"
   },
   "dependencies": {}
 }
