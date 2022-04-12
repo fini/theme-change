@@ -2,7 +2,7 @@ function themeBtn() {
   (function (theme = localStorage.getItem("theme")) {
     if (theme != undefined && theme != '') {
       if (localStorage.getItem("theme") && localStorage.getItem("theme") != '') {
-        document.documentElement.setAttribute("data-theme", theme);
+        document.querySelector("[data-theme-root='true']").setAttribute("data-theme", theme);
         var btnEl = document.querySelector("[data-set-theme='" + theme.toString() + "']")
         if (btnEl) {
           [...document.querySelectorAll("[data-set-theme]")].forEach((el) => {
@@ -22,8 +22,8 @@ function themeBtn() {
   })();
   [...document.querySelectorAll("[data-set-theme]")].forEach((el) => {
     el.addEventListener("click", function () {
-      document.documentElement.setAttribute("data-theme", this.getAttribute('data-set-theme'));
-      localStorage.setItem("theme", document.documentElement.getAttribute('data-theme'));
+      document.querySelector("[data-theme-root='true']").setAttribute("data-theme", this.getAttribute('data-set-theme'));
+      localStorage.setItem("theme", document.querySelector("[data-theme-root='true']").getAttribute('data-theme'));
       [...document.querySelectorAll("[data-set-theme]")].forEach((el) => {
         el.classList.remove(el.getAttribute('data-act-class'));
       });
